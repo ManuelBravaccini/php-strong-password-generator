@@ -12,22 +12,12 @@
     <main>
         <form action="./index.php" method="GET">
             <label for="password_length">Lunghezza password:</label>
-            <input type="text" name="password_length">
+            <input type="number" name="password_length">
             <button type="submit">Genera password</button>
         </form>
 
         <?php
-        $length = (int) $_GET['password_length'];
-
-        function generatePassword($length)
-        {
-            $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-=+;:,.?";
-            return substr(str_shuffle($chars), 0, $length);
-        }
-
-        $password = generatePassword($length);
-
-        echo "La tua password è: " . $password;
+        include_once __DIR__ . '/function.php';
         ?>
     </main>
 </body>
